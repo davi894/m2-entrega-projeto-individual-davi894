@@ -20,7 +20,7 @@
         href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Alfa+Slab+One&family=Asset&family=Merriweather:ital,wght@1,300&family=Recursive:wght@900&family=Source+Serif+Pro:ital,wght@0,200;1,700&display=swap"
         rel="stylesheet">
 
-
+    <link rel="stylesheet" href="../styles/cadastro/cadastro.css">
     <link rel="stylesheet" href="../styles/reset.css">
     <link rel="stylesheet" href="../styles/global.css">
 
@@ -29,26 +29,34 @@
 
 <body>
 
-    <header>
-        <h1></h1>
+    <header id="head__cadastro">
+        <h1 id="head__h1__cadastro">Multi-Empresas</h1>
     </header>
 
-    <form action="" id="cadastro" class="formularios">
-        <label for="" id="cadastro__label__email" class="cadastro__label">email</label>
-        <input type="email" name="" id="cadastro__input__email">
+    <main>
+        <form action="" id="cadastro" class="formularios">
+            <label for="" id="cadastro__label__email" class="cadastro__label">email</label>
+            <input type="email" name="" id="cadastro__input__email">
 
-        <label for="" id="cadastro__label__username" class="cadastro__label">username</label>
-        <input type="text" name="" id="cadastro__input__username">
+            <label for="" id="cadastro__label__username" class="cadastro__label">username</label>
+            <input type="text" name="" id="cadastro__input__username">
 
-        <label for="" id="cadastro__label__professional_level" class="cadastro__label">Professional level</label>
-        <input type="text" name="" id="cadastro__input__professional_level">
+            <label for="" id="cadastro__label__professional_level" class="cadastro__label">Professional level</label>
+            <select name="" id="cadastro__input__professional_level">
+                <option value="estágio">Estagiário</option>
+                <option value="júnior">Júnior</option>
+                <option value="pleno">Pleno</option>
+                <option value="sênior">Sênior</option>
+            </select>
 
-        <label for="" id="cadastro__label__password" class="cadastro__label">password</label>
-        <input type="password" name="" id="cadastro__input__password">
+            <label for="" id="cadastro__label__password" class="cadastro__label">password</label>
+            <input type="password" name="" id="cadastro__input__password">
 
-        <button id="cadastro__btn__cadastrar">register</button>
-    </form>
+            <button id="cadastro__btn__cadastrar">register</button>
+            <a href="../../index.html">login</a>
+        </form>
 
+    </main>
     <script type="module" src="../scripts/models/cadastro.js"></script>
 </body>
 

@@ -1,5 +1,4 @@
 import { ApiCompanies } from "../API/api.js"
-
 class Login {
 
     static async singUp() {
@@ -18,11 +17,9 @@ class Login {
             }
             console.log(bodyLogin)
 
-            await ApiCompanies.logar(bodyLogin)
+            await ApiCompanies.Logar(bodyLogin)
         })
     }
 }
 
 Login.singUp()
-
-export { Login }

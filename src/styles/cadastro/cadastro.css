@@ -1,6 +1,10 @@
-/* * {
+* {
   outline: 1px solid red;
-} */
+}
+
+body {
+  font-size: 2rem;
+}
 
 main {
   max-width: 100vw;
@@ -11,21 +15,24 @@ main {
   display: flex;
 }
 
-h1 {
-  font-size: 2rem;
-  font-weight: 900;
-}
 /* header */
 
-header {
+#head__cadastro {
   height: 2rem;
   max-width: 100vw;
   padding: 0.8rem;
 }
 
+#head__h1__cadastro {
+  position: absolute;
+  top: 1rem;
+  font-size: 2rem;
+  left: 1rem;
+  font-weight: 900;
+}
 /* fomr */
 
-#login {
+#cadastro {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -33,9 +40,12 @@ header {
   gap: 16px;
 }
 
-#login__Label__email,
-#login__Label__password {
+#cadastro__label__email,
+#cadastro__label__username,
+#cadastro__label__professional_level,
+#cadastro__label__password {
   min-width: 80%;
+  font-size: 1.5rem;
 }
 
 /* input */
@@ -47,7 +57,7 @@ input {
 }
 
 /* button */
-#login__btn__logar {
+#cadastro__btn__cadastrar {
   min-width: 80px;
   padding: 0.5rem;
 }

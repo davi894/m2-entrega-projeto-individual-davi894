@@ -19,9 +19,8 @@ class Register {
                 username: cadastro__input__username.value
             }
             console.log(bodyRegister)
-            await ApiCompanies.registration(bodyRegister)
+            await ApiCompanies.Registration(bodyRegister)
         })
     }
 }
 Register.register()
-export { Register }

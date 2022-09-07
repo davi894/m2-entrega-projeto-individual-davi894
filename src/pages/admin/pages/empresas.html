@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../../styles/global.css">
+    <link rel="stylesheet" href="../../../styles/reset.css">
+    <link rel="stylesheet" href="../../../styles/admin/admin.css">
+    <title>Empresas</title>
+</head>
+
+<body>
+
+    <header id="head__admin">
+        <h1 id="head__admin__h1">Multi-Empresas</h1>
+        <div id="admin__NomeImgEmail">
+            <img id="admin__img" src="../../../assets/svg/person-circle-outline.svg" alt="">
+            <div id="admin__dados">
+                <span id="admin__nome">nome</span>
+                <span id="admin__email">nome@gmail.com</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <ul id="admin__ul">
+            <li class="admin__li"> <a class="admin__a" href="../../../pages/admin/pages/empresas.html">empresas</a>
+            </li>
+            <li class="admin__li"> <a class="admin__a" href="../../../pages/admin/pages/setores.html">setores</a></li>
+            <li class="admin__li"> <a class="admin__a"
+                    href="../../../pages/admin/pages/departamento.html">departamentos</a> </li>
+            <li class="admin__li"> <a class="admin__a"
+                    href="../../../pages/admin/pages/funcionarios.html">funcionários</a>
+            </li>
+            <li class="admin__li"><a class="admin__a" href="../admin.html">Home</a></li>
+        </ul>
+
+        <section id="admin_section__empresas">
+
+            <ul id="lista__ul__empresas">
+                <!-- <li>
+                    <h2 class="nome__h2__empresa">nome Empresa</h2>
+                    <h3 class="ramo__h3__empresa">Ramo</h3>
+                    <p class="descricao__p__empresa"> descricção</p>
+                    <span class="funcionamento__h2__empresa"> horario de trabalho</span>
+                </li> -->
+            </ul>
+
+        </section>
+    </main>
+    <!--   {
+        "uuid": "8332f7dc-980c-4d1a-87e7-95fbadfac45a",
+        "name": "Skina Lanches",
+        "opening_hours": "09:00",
+        "description": "Podrão de qualidade",
+        "sectors": {
+            "uuid": "74426d33-7bb1-4cbf-9f7f-1cec0b2710dc",
+            "description": "Alimenticio"
+        }
+    } -->
+
+
+    <script type="module" src="../../../scripts/models/ListartTodasEmpresas.js"></script>
+</body>
+
+</html>

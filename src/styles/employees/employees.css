@@ -1,0 +1,19 @@
+#funcionario__btn__EditarDados {
+  background-color: black;
+  color: white;
+  border: none;
+}
+
+@media (max-width: 537px) {
+  #admin__NomeImgEmail {
+    flex-direction: column;
+  }
+  #head__admin {
+    flex-direction: column;
+  }
+
+  #funcionario__btn__EditarDados {
+    max-width: 200px;
+    padding: 0.5rem;
+  }
+}

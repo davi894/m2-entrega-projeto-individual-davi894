@@ -1,3 +1,5 @@
+
+
 class ApiCompanies {
 
     static URLbase = "http://localhost:6278/"
@@ -13,7 +15,7 @@ class ApiCompanies {
     /* ROTAS QUE NÂO UTILIZAM TOKEN */
 
     static async ListAllCompanies() {
-        await fetch(`${this.URLbase}/companies`, {
+        return await fetch(`${this.URLbase}companies`, {
             method: "GET"
         })
             .then(resp => resp.json())
@@ -21,31 +23,58 @@ class ApiCompanies {
     }
 
     static async ListCompaniesByIndustry(IdIndustrySectors) {
-        await fetch(`${this.URLbase}companies/${IdIndustrySectors}`, {
+        console.log(IdIndustrySectors)
+        return await fetch(`${this.URLbase}companies/${IdIndustrySectors}`, {
             method: "GET"
         })
             .then(resp => resp.json())
             .then(resp => resp)
     }
 
-    static async registration(bodyRegister) {
+    static async Registration(bodyRegister) {
+        console.log(bodyRegister)
         await fetch(`${this.URLbase}auth/register/user`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(bodyRegister)
         })
             .then(resp => resp.json())
-            .then(resp => resp)
+            .then(resp => {
+                console.log(resp)
+                resp
+            })
     }
 
     static async Logar(bodyLogin) {
+        console.log(bodyLogin)
         await fetch(`${this.URLbase}auth/login`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(bodyLogin)
         })
             .then(resp => resp.json())
-            .then(resp => resp)
+            .then(resp => {
+                console.log(resp)
+
+                if (resp.is_admin) {
+                    alert("O Admin Logou")
+                    localStorage.setItem("TOKEN:Token", resp.token)
+                    localStorage.setItem("ID:Id", resp.uuid)
+                    window.location.replace("/src/pages/admin/admin.html")
+                } else if (!resp.is_admin) {
+                    alert("O funcionário Logou")
+                    localStorage.setItem("TOKEN:Token", resp.token)
+                    localStorage.setItem("ID:Id", resp.uuid)
+                    window.location.replace(".src/pages/employees.html")
+                } else {
+                    alert("logou em anônimo")
+                    localStorage.setItem("TOKEN:Token", resp.token)
+                    localStorage.setItem("ID:Id", resp.uuid)
+                    window.location.replace(".src/pages/anonymous.html")
+                }
+            }).catch(err => {
+                alert("dados ou usuário inválido")
+            })
     }
 
     /*ADMIN*/
@@ -57,16 +86,17 @@ class ApiCompanies {
             Authorization: `Bearer ${this.Token}`,
         })
             .then(resp => resp.json())
-            .then(resp => resp)
+            .then(resp =>
+                console.log(resp))
     }
 
     static async UsersWithoutDepartments() {
-        await fetch(`${this.URLbase}admin/out_of_work`, {
+        return await fetch(`${this.URLbase}admin/out_of_work`, {
             method: "GET",
             Authorization: `Bearer ${this.Token}`
         })
             .then(resp => resp.json())
-            .then(resp => resp)
+            .then(resp => console.log(resp))
     }
 
     static async UpdateEmployeeInformation(body, uuidEmployee) {
@@ -165,10 +195,11 @@ class ApiCompanies {
     /*EMPLYEES*/
 
     static async UpdateEmployeeInformation(dadosAtualizado) {
-        /*   {
-              "username": "Bertoldo",
-              "email": "bertoldo@mail.com"
-            } */
+        /*  {
+  "username": "Bertoldo",
+  "email": "bertoldo@mail.com",
+  "password": "senha123"
+} */
         await fetch(`${this.URLbase}users`, {
             method: "PATCH",
             headers: this.headers,
@@ -197,6 +228,5 @@ class ApiCompanies {
             .then(resp => resp)
         return ListEmployees
     }
-
 }
 export { ApiCompanies }
