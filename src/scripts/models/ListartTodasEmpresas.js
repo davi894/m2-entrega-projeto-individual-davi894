@@ -12,7 +12,7 @@ class ListCompanies {
 
         arrayListaDeEmpresas.forEach(async (elem) => {
             const li = document.createElement("li")
-
+            li.classList.add("admin__empresas")
             const h2 = document.createElement("h2")
             h2.classList.add("nome__h2__empresa")
             const h3 = document.createElement("h3")
@@ -22,10 +22,10 @@ class ListCompanies {
             const span = document.createElement("span")
             span.classList.add("funcionamento__h2__empresa")
 
-            h2.innerText = elem.name
-            h3.innerText = elem.sectors["description"]
-            p.innerText = elem.description
-            span.innerText = elem.opening_hours
+            h2.innerText = `Empresa:  ${elem.name}`
+            h3.innerText = `Setor: ${elem.sectors["description"]}`
+            p.innerText = `Descrição: ${elem.description}`
+            span.innerText = `Abertura: ${elem.opening_hours} hrs`
 
             li.append(h2, h3, p, span)
 

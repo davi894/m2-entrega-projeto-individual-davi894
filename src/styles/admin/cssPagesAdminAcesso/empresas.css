@@ -1,0 +1,9 @@
+#lista__ul__empresas {
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.admin__empresas {
+  padding: 1rem;
+  border: 1px solid black;
+}

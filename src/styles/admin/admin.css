@@ -9,6 +9,11 @@ main {
   align-items: center;
 }
 
+article {
+  border: 1px black solid;
+  margin-top: 1rem;
+}
+
 #admin__form {
   display: flex;
   flex-direction: column;
@@ -86,4 +91,14 @@ main {
 }
 
 #admin__email {
+}
+
+#admin_section__setores {
+  margin-top: 1rem;
+}
+
+.admin__form__h2 {
+  font-size: 1.5rem;
+  font-weight: 900;
+  text-align: center;
 }

@@ -81,22 +81,22 @@ class ApiCompanies {
 
     static async ListAllUsers() {
 
-        await fetch(`${this.URLbase}users`, {
+        return await fetch(`${this.URLbase}users`, {
             method: "GET",
-            Authorization: `Bearer ${this.Token}`,
-        })
-            .then(resp => resp.json())
-            .then(resp =>
-                console.log(resp))
-    }
-
-    static async UsersWithoutDepartments() {
-        return await fetch(`${this.URLbase}admin/out_of_work`, {
-            method: "GET",
-            Authorization: `Bearer ${this.Token}`
+            headers: this.headers
         })
             .then(resp => resp.json())
             .then(resp => console.log(resp))
+    }
+
+    static async UsersWithoutDepartments() {
+        const usuarisoSemDeparatemnto = await fetch(`${this.URLbase}admin/out_of_work`, {
+            method: "GET",
+            headers: this.headers
+        })
+            .then(resp => resp.json())
+            .then(resp => resp)
+        return usuarisoSemDeparatemnto
     }
 
     static async UpdateEmployeeInformation(body, uuidEmployee) {
@@ -114,7 +114,7 @@ class ApiCompanies {
     static async ListAllSectors() {
         const todosSetores = await fetch(`${this.URLbase}sectors`, {
             method: "GET",
-            Authorization: `${this.Token}`
+            headers: this.headers
         })
             .then(resp => resp.json())
             .then(resp => resp)
@@ -126,7 +126,7 @@ class ApiCompanies {
     static async DeleteDepartment(idDepartamento) {
         await fetch(`${this.URLbase}departments/${idDepartamento}`, {
             method: "DELETE",
-            Authorization: `Bearer ${this.Token}`
+
         })
             .then(resp => resp.json())
             .then(resp => resp)
@@ -145,7 +145,7 @@ class ApiCompanies {
     static async Dismissemployee(uuidDemitirFuncionario) {
         await fetch(`${this.URLbase}/${uuidDemitirFuncionario}`, {
             method: "PATCH",
-            Authorization: `Bearer ${this.Token}`
+            headers: this.headers
         })
             .then(resp => resp.json())
             .then(resp => resp)
@@ -154,7 +154,7 @@ class ApiCompanies {
     static async ListAllDepartmentsInThecompany(uuidDepartamento) {
         const todosOsDepratemntos = await fetch(`${this.URLbase}/${uuidDepartamento}`, {
             method: "GET",
-            Authorization: `Bearer ${this.Token}`
+            headers: this.headers
         })
             .then(resp => resp.json())
             .then(resp => resp)
@@ -164,7 +164,7 @@ class ApiCompanies {
     static async listAlldepartments() {
         await fetch(`${this.URLbase}departments`, {
             method: "GET",
-            Authorization: `Bearer ${this.Token}`
+            headers: this.headers
         })
             .then(resp => resp.json())
             .then(resp => resp)
@@ -212,7 +212,7 @@ class ApiCompanies {
     static async ListAllEmployeesOfTheMonth() {
         const EmployeesOfTheMonth = await fetch(`${this.URLbase}users/departments/coworkers`, {
             method: "GET",
-            headers: `Bearer ${this.Token}`,
+            headers: this.headers
         })
             .then(resp => resp.json())
             .then(resp => resp)
@@ -222,7 +222,7 @@ class ApiCompanies {
     static async ListEmployeeIsDepartment() {
         const ListEmployees = await fetch(`${this.URLbase}users/departments/coworkers`, {
             method: "GET",
-            Authorization: `Bearer ${this.Token}`
+            headers: this.headers
         })
             .then(resp => resp.json())
             .then(resp => resp)

@@ -10,14 +10,26 @@ class rendrizandosetores {
 
         const ulSetores = document.querySelector("#admin__ul__setores")
 
+        const btn = document.querySelector("#admin__btn__bucarporFiltragem")
+
+        const select = document.querySelector("#empresas__setores")
         arrayListaDeEmpresas.forEach(async (elem) => {
             console.log(elem)
 
-            const li = document.createElement("li")
-            li.innerText = elem.sectors["description"]
+            const options = document.createElement("option")
+            options.innerText = elem.sectors["description"]
+            options.classList.add("adim__option__filtragem")
+            options.value = elem.sectors["description"]
+            select.append(options)
 
-            ulSetores.appendChild(li)
         });
+
+        btn.addEventListener("click", (e) => {
+            const optionsFiltragem = document.querySelector(".adim__option__filtragem")
+            e.preventDefault()
+            console.log(optionsFiltragem.innerText)
+
+        })
     }
 }
 
