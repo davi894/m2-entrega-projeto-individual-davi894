@@ -1,8 +1,8 @@
-import { ApiCompanies } from "../API/api.js"
+import { Api } from "../API/api.js"
 
-class Register {
+class Cadastro {
 
-    static async register() {
+    static async cadastramento() {
         const cadastro__input__email = document.querySelector("#cadastro__input__email")
         const cadastro__input__username = document.querySelector("#cadastro__input__username")
         const cadastro__input__professional_level = document.querySelector("#cadastro__input__professional_level")
@@ -19,8 +19,8 @@ class Register {
                 username: cadastro__input__username.value
             }
             console.log(bodyRegister)
-            await ApiCompanies.Registration(bodyRegister)
+            await Api.Registration(bodyRegister)
         })
     }
 }
-Register.register()
+Cadastro.cadastramento()

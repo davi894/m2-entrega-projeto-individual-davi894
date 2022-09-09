@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="../../styles/global.css">
     <link rel="stylesheet" href="../../styles/admin/admin.css">
 
-    <title>Page Admin</title>
+    <title>Página do Admin</title>
 </head>
 
 <body>
@@ -47,7 +47,7 @@
             <li class="admin__li"> <a class="admin__a" href="./pages/setores.html">setores</a></li>
             <li class="admin__li"> <a class="admin__a" href="./pages/departamento.html">departamentos</a> </li>
             <li class="admin__li"> <a class="admin__a" href="./pages/funcionarios.html">funcionários</a></li>
-            <li class="admin__li"><a class="admin__a" href="../admin/admin.html">Home</a></li>
+            <li class="admin__li"><a class="admin__a" href="../admin/admin.html">Página Principal</a></li>
         </ul>
 
         <section id="admin__section">
@@ -65,24 +65,16 @@
             <h2 class="admin__h2">Atualizar informações do funcionário</h2>
             <form action="" id="admin__form">
 
-                <select name="" id="">
+                <select name="" id="admin__select">
 
                 </select>
-                <button>buscar funcionário</button>
+                <button id="admin__btn__buscarFunSelect">buscar funcionário</button>
 
                 <label for="">kind of work</label>
-                <select name="" id="">
-                    <option value="home office">Home Office</option>
-                    <option value="presencial">Presencial</option>
-                    <option value="hibrido">Hibrido</option>
-                </select>
-                <label for="">Professional level</label>
-                <select name="" id="">
-                    <option value="home office">Home Office</option>
-                    <option value="presencial">Presencial</option>
-                    <option value="hibrido">Hibrido</option>
-                </select>
-
+                <input type="text" id="admin__kindofwork">
+                <label for="">Nível Profissional</label>
+                <input type="text" id="admin__nivelProfissional">
+                <button id="admin__btn__editarUser">editar</button>
             </form>
         </section>
     </main>

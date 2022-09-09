@@ -1,7 +1,7 @@
-import { ApiCompanies } from "../API/api.js"
+import { Api } from "../API/api.js"
 class Login {
 
-    static async singUp() {
+    static async logando() {
 
         const login__input__email = document.querySelector("#login__input__email")
         const login__input__password = document.querySelector("#login__input__password")
@@ -17,9 +17,9 @@ class Login {
             }
             console.log(bodyLogin)
 
-            await ApiCompanies.Logar(bodyLogin)
+            await Api.Logar(bodyLogin)
         })
     }
 }
 
-Login.singUp()
+Login.logando()

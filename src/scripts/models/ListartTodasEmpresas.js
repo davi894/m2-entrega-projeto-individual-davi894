@@ -1,12 +1,12 @@
-import { ApiCompanies } from "../API/api.js";
+import { Api } from "../API/api.js";
 
-const listaDeEmpresas = await ApiCompanies.ListAllCompanies()
+const listaDeEmpresas = await Api.ListarEmpresas()
 
 const arrayListaDeEmpresas = listaDeEmpresas
 
-class ListCompanies {
+class listarEmpresas {
 
-    static async RenderingCompanies() {
+    static async renderizandoEmpresas() {
 
         const ulEmpresas = document.querySelector("#lista__ul__empresas")
 
@@ -34,6 +34,6 @@ class ListCompanies {
     }
 }
 
-ListCompanies.RenderingCompanies()
+listarEmpresas.renderizandoEmpresas()
 
-export { ListCompanies }
+export { listarEmpresas }

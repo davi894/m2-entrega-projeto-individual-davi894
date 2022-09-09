@@ -1,6 +1,6 @@
 
 
-class ApiCompanies {
+class Api {
 
     static URLbase = "http://localhost:6278/"
 
@@ -14,7 +14,7 @@ class ApiCompanies {
 
     /* ROTAS QUE NÂO UTILIZAM TOKEN */
 
-    static async ListAllCompanies() {
+    static async ListarEmpresas() {
         return await fetch(`${this.URLbase}companies`, {
             method: "GET"
         })
@@ -22,7 +22,7 @@ class ApiCompanies {
             .then(resp => resp)
     }
 
-    static async ListCompaniesByIndustry(IdIndustrySectors) {
+    static async LisarEmpresasPorSetor(IdIndustrySectors) {
         console.log(IdIndustrySectors)
         return await fetch(`${this.URLbase}companies/${IdIndustrySectors}`, {
             method: "GET"
@@ -31,7 +31,7 @@ class ApiCompanies {
             .then(resp => resp)
     }
 
-    static async Registration(bodyRegister) {
+    static async cadastrar(bodyRegister) {
         console.log(bodyRegister)
         await fetch(`${this.URLbase}auth/register/user`, {
             method: "POST",
@@ -65,12 +65,12 @@ class ApiCompanies {
                     alert("O funcionário Logou")
                     localStorage.setItem("TOKEN:Token", resp.token)
                     localStorage.setItem("ID:Id", resp.uuid)
-                    window.location.replace(".src/pages/employees.html")
+                    window.location.replace(".src/pages/funcionarios.html")
                 } else {
                     alert("logou em anônimo")
                     localStorage.setItem("TOKEN:Token", resp.token)
                     localStorage.setItem("ID:Id", resp.uuid)
-                    window.location.replace(".src/pages/anonymous.html")
+                    window.location.replace(".src/pages/anonimo.html")
                 }
             }).catch(err => {
                 alert("dados ou usuário inválido")
@@ -79,17 +79,17 @@ class ApiCompanies {
 
     /*ADMIN*/
 
-    static async ListAllUsers() {
+    static async listarTodosusuarios() {
 
         return await fetch(`${this.URLbase}users`, {
             method: "GET",
             headers: this.headers
         })
             .then(resp => resp.json())
-            .then(resp => console.log(resp))
+            .then(resp => resp)
     }
 
-    static async UsersWithoutDepartments() {
+    static async usuariosSemDepartamentos() {
         const usuarisoSemDeparatemnto = await fetch(`${this.URLbase}admin/out_of_work`, {
             method: "GET",
             headers: this.headers
@@ -99,19 +99,20 @@ class ApiCompanies {
         return usuarisoSemDeparatemnto
     }
 
-    static async UpdateEmployeeInformation(body, uuidEmployee) {
+    static async adminEditarDadosDoFuncionario(body, uuidEmployee) {
+        // console.log(body, uuidEmployee)
         await fetch(`${this.URLbase}admin/update_user/${uuidEmployee}`, {
             method: "PATCH",
             headers: this.headers,
             body: JSON.stringify(body)
         })
             .then(resp => resp.json())
-            .then(resp => resp)
+            .then(resp => console.log(resp))
     }
 
     /*ADMIN--SECTORES*/
 
-    static async ListAllSectors() {
+    static async listarTodosOsSetores() {
         const todosSetores = await fetch(`${this.URLbase}sectors`, {
             method: "GET",
             headers: this.headers
@@ -123,7 +124,7 @@ class ApiCompanies {
 
     /*ADMIN--DEPARTAMENT*/
 
-    static async DeleteDepartment(idDepartamento) {
+    static async DeleterDepartament0(idDepartamento) {
         await fetch(`${this.URLbase}departments/${idDepartamento}`, {
             method: "DELETE",
 
@@ -132,7 +133,7 @@ class ApiCompanies {
             .then(resp => resp)
     }
 
-    static async Hireemployee(uuidContratado) {
+    static async contratarFuncionario(uuidContratado) {
         await fetch(`${this.URLbase}departments/hire/`, {
             method: "PATCH",
             headers: this.headers,
@@ -142,7 +143,7 @@ class ApiCompanies {
             .then(resp => resp)
     }
 
-    static async Dismissemployee(uuidDemitirFuncionario) {
+    static async demitirFuncionarios(uuidDemitirFuncionario) {
         await fetch(`${this.URLbase}/${uuidDemitirFuncionario}`, {
             method: "PATCH",
             headers: this.headers
@@ -151,7 +152,7 @@ class ApiCompanies {
             .then(resp => resp)
     }
 
-    static async ListAllDepartmentsInThecompany(uuidDepartamento) {
+    static async listarTodosOsdepartamentosDeEmpresa(uuidDepartamento) {
         const todosOsDepratemntos = await fetch(`${this.URLbase}/${uuidDepartamento}`, {
             method: "GET",
             headers: this.headers
@@ -161,7 +162,7 @@ class ApiCompanies {
         return todosOsDepratemntos
     }
 
-    static async listAlldepartments() {
+    static async listarTodosOsdepartamentos() {
         await fetch(`${this.URLbase}departments`, {
             method: "GET",
             headers: this.headers
@@ -170,7 +171,7 @@ class ApiCompanies {
             .then(resp => resp)
     }
 
-    static async Createdepartment(body) {
+    static async criarDepratamento(body) {
         await fetch(`${this.URLbase}departments`, {
             method: "POST",
             headers: this.headers,
@@ -182,7 +183,7 @@ class ApiCompanies {
 
     /*ADMIN--COMPANY*/
 
-    static async RegisterCompany(cadastroEmpresa) {
+    static async cadastrarEmpresa(cadastroEmpresa) {
         await fetch(`${this.URLbase}companies`, {
             method: "POST",
             headers: this.headers,
@@ -209,7 +210,7 @@ class ApiCompanies {
             .then(resp => resp)
     }
 
-    static async ListAllEmployeesOfTheMonth() {
+    static async listarTodosOsFuncionariosDoMes() {
         const EmployeesOfTheMonth = await fetch(`${this.URLbase}users/departments/coworkers`, {
             method: "GET",
             headers: this.headers
@@ -219,7 +220,7 @@ class ApiCompanies {
         return EmployeesOfTheMonth
     }
 
-    static async ListEmployeeIsDepartment() {
+    static async listartodosOsFuncionariosDoDeparatmentoDoFuncionario() {
         const ListEmployees = await fetch(`${this.URLbase}users/departments/coworkers`, {
             method: "GET",
             headers: this.headers
@@ -229,4 +230,4 @@ class ApiCompanies {
         return ListEmployees
     }
 }
-export { ApiCompanies }
+export { Api }

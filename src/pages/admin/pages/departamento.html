@@ -35,7 +35,7 @@
             <li class="admin__li"> <a class="admin__a"
                     href="../../../pages/admin/pages/funcionarios.html">funcionários</a>
             </li>
-            <li class="admin__li"><a class="admin__a" href="../admin.html">Home</a></li>
+            <li class="admin__li"><a class="admin__a" href="../admin.html">Página Principal</a></li>
         </ul>
 
         <section id="admin_section__empresas">
@@ -43,126 +43,46 @@
 
             <article id="admin_section__listarTodososDepartamentos">
                 <h2 class="admin__form__h2">Listar todos os departamentos</h2>
-                <form action="" id="admin__form">
+                <ul id="admin__ul__todosOsDepartamentos">
 
-                    <select name="" id="">
-
-                    </select>
-                    <button>buscar funcionário</button>
-
-                    <label for="">kind of work</label>
-                    <select name="" id="">
-                        <option value="home office">Home Office</option>
-                        <option value="presencial">Presencial</option>
-                        <option value="hibrido">Hibrido</option>
-                    </select>
-                    <label for="">Professional level</label>
-                    <select name="" id="">
-                        <option value="home office">Home Office</option>
-                        <option value="presencial">Presencial</option>
-                        <option value="hibrido">Hibrido</option>
-                    </select>
-
-                </form>
+                </ul>
             </article>
 
             <article id="admin_section__listarTodososDepartamentosdeUmaEmpresa">
-                <h2 class="admin__form__h2">Listar os Todos os depratamentos a empresa</h2>
-                <form action="" id="admin__form">
-
-                    <select name="" id="">
-
-                    </select>
-                    <button>buscar funcionário</button>
-
-                    <label for="">kind of work</label>
-                    <select name="" id="">
-                        <option value="home office">Home Office</option>
-                        <option value="presencial">Presencial</option>
-                        <option value="hibrido">Hibrido</option>
-                    </select>
-                    <label for="">Professional level</label>
-                    <select name="" id="">
-                        <option value="home office">Home Office</option>
-                        <option value="presencial">Presencial</option>
-                        <option value="hibrido">Hibrido</option>
-                    </select>
-
-                </form>
+                <h2 class="admin__form__h2">Listar os Todos os departamentos a empresa</h2>
+                <ul id="admin__ul__ListarTodosOsDepartamentosDaEmpresa"></ul>
             </article>
 
             <article id="admin_section__criarDepartamento">
                 <h2 class="admin__form__h2">Criar Departamento</h2>
                 <form action="" id="admin__form">
-
-                    <select name="" id="">
-
-                    </select>
-                    <button>buscar funcionário</button>
-
-                    <label for="">kind of work</label>
-                    <select name="" id="">
-                        <option value="home office">Home Office</option>
-                        <option value="presencial">Presencial</option>
-                        <option value="hibrido">Hibrido</option>
-                    </select>
-                    <label for="">Professional level</label>
-                    <select name="" id="">
-                        <option value="home office">Home Office</option>
-                        <option value="presencial">Presencial</option>
-                        <option value="hibrido">Hibrido</option>
-                    </select>
-
+                    <label for="">Nome da Empresa</label>
+                    <input type="text" id="admin_name__empresa">
+                    <label for="">Descrição</label>
+                    <input type="text" id="admin_name__description">
+                    <label for="">uuid da Empresa</label>
+                    <input type="text" id="admin_name__company_uuid">
+                    <button id="admin__CriarDepartamento">criar</button>
                 </form>
             </article>
 
             <article id="admin_section__contratar">
                 <h2 class="admin__form__h2">Contratar</h2>
                 <form action="" id="admin__form">
-
-                    <select name="" id="">
-
-                    </select>
-                    <button>buscar funcionário</button>
-
-                    <label for="">kind of work</label>
-                    <select name="" id="">
-                        <option value="home office">Home Office</option>
-                        <option value="presencial">Presencial</option>
-                        <option value="hibrido">Hibrido</option>
-                    </select>
-                    <label for="">Professional level</label>
-                    <select name="" id="">
-                        <option value="home office">Home Office</option>
-                        <option value="presencial">Presencial</option>
-                        <option value="hibrido">Hibrido</option>
-                    </select>
-
+                    <label for="" id="admin__uuidFuncionario">uuid do funcionário</label>
+                    <input type="text">
+                    <label for="" id="admin__uuidDapartamento">uuid do departamentos do funcionário</label>
+                    <input type="text">
+                    <button id="admin__contratar">contratar</button>
                 </form>
             </article>
 
             <article id="admin_section__demitirFuncionario">
                 <h2 class="admin__form__h2">Demitir Funcionário</h2>
                 <form action="" id="admin__form">
-
-                    <select name="" id="">
-
-                    </select>
-                    <button>buscar funcionário</button>
-
-                    <label for="">kind of work</label>
-                    <select name="" id="">
-                        <option value="home office">Home Office</option>
-                        <option value="presencial">Presencial</option>
-                        <option value="hibrido">Hibrido</option>
-                    </select>
-                    <label for="">Professional level</label>
-                    <select name="" id="">
-                        <option value="home office">Home Office</option>
-                        <option value="presencial">Presencial</option>
-                        <option value="hibrido">Hibrido</option>
-                    </select>
-
+                    <label for="">uuid do funcionários</label>
+                    <input type="text" id="demitir" name="" id="">
+                    <button id="admin__demitirFuncionario">demitir</button>
                 </form>
             </article>
 
@@ -170,48 +90,19 @@
                 <h2 class="admin__form__h2">Editar Departamento</h2>
                 <form action="" id="admin__form">
 
-                    <select name="" id="">
-
-                    </select>
-                    <button>buscar funcionário</button>
-
-                    <label for="">kind of work</label>
-                    <select name="" id="">
-                        <option value="home office">Home Office</option>
-                        <option value="presencial">Presencial</option>
-                        <option value="hibrido">Hibrido</option>
-                    </select>
-                    <label for="">Professional level</label>
-                    <select name="" id="">
-                        <option value="home office">Home Office</option>
-                        <option value="presencial">Presencial</option>
-                        <option value="hibrido">Hibrido</option>
-                    </select>
-
+                    <label for="">Descrição</label>
+                    <input type="text" id="admin__departamento">
+                    <button id="admin__ediarDep">editar</button>
                 </form>
             </article>
 
             <article id="admin_section__deletar">
-                <h2 class="admin__form__h2">Deletar</h2>
+                <h2 class="admin__form__h2">Deletar Departamento</h2>
                 <form action="" id="admin__form">
 
-                    <select name="" id="">
-
-                    </select>
-                    <button>buscar funcionário</button>
-
-                    <label for="">kind of work</label>
-                    <select name="" id="">
-                        <option value="home office">Home Office</option>
-                        <option value="presencial">Presencial</option>
-                        <option value="hibrido">Hibrido</option>
-                    </select>
-                    <label for="">Professional level</label>
-                    <select name="" id="">
-                        <option value="home office">Home Office</option>
-                        <option value="presencial">Presencial</option>
-                        <option value="hibrido">Hibrido</option>
-                    </select>
+                    <label for="">uuid do departamento</label>
+                    <input type="text" id="admin__deletarDepartamento">
+                    <button id="admin__deletarDep">deletar</button>
 
                 </form>
             </article>
@@ -219,7 +110,7 @@
         </section>
     </main>
 
-
+    <script type="module" src="../../../scripts/models/departamento.js"></script>
 </body>
 
 </html>

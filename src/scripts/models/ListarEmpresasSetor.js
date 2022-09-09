@@ -1,36 +1,70 @@
-import { ApiCompanies } from "../API/api.js";
+import { Api } from "../API/api.js";
 
-const listaDeEmpresas = await ApiCompanies.ListAllCompanies()
+const listaDeEmpresas = await Api.ListarEmpresas()
 
 const arrayListaDeEmpresas = listaDeEmpresas
 
-class rendrizandosetores {
+
+
+class Rendrizandosetores {
 
     static setores() {
 
-        const ulSetores = document.querySelector("#admin__ul__setores")
+        const arraysetores = []
+
+
 
         const btn = document.querySelector("#admin__btn__bucarporFiltragem")
 
         const select = document.querySelector("#empresas__setores")
-        arrayListaDeEmpresas.forEach(async (elem) => {
-            console.log(elem)
 
-            const options = document.createElement("option")
-            options.innerText = elem.sectors["description"]
-            options.classList.add("adim__option__filtragem")
-            options.value = elem.sectors["description"]
-            select.append(options)
+        for (let i = 0; i < arrayListaDeEmpresas.length; i++) {
+            arraysetores.push(arrayListaDeEmpresas[i].sectors.description)
+        }
 
-        });
+        const uniqueArr = [...new Set(arraysetores)]
 
-        btn.addEventListener("click", (e) => {
-            const optionsFiltragem = document.querySelector(".adim__option__filtragem")
+        uniqueArr.forEach(async (elem) => {
+
+            const option = document.createElement("option")
+            option.innerText = elem
+            option.value = elem
+            select.appendChild(option)
+        })
+
+        btn.addEventListener("click", async (e) => {
             e.preventDefault()
-            console.log(optionsFiltragem.innerText)
 
+            if (select.value) {
+
+                const ulSetores = document.querySelector("#admin__ul__setores")
+
+                let filtragem = await Api.LisarEmpresasPorSetor(select.value)
+
+                filtragem.forEach((elem) => {
+                    const li = document.createElement("li")
+                    li.classList.add("admin__empresas")
+                    const h2 = document.createElement("h2")
+                    h2.classList.add("nome__h2__empresa")
+                    const h3 = document.createElement("h3")
+                    h3.classList.add("ramo__h3__empresa")
+                    const p = document.createElement("p")
+                    p.classList.add("descricao__p__empresa")
+                    const span = document.createElement("span")
+                    span.classList.add("funcionamento__h2__empresa")
+
+                    h2.innerText = `Empresa:  ${elem.name}`
+                    h3.innerText = `Setor: ${elem.sectors["description"]}`
+                    p.innerText = `Descrição: ${elem.description}`
+                    span.innerText = `Abertura: ${elem.opening_hours} hrs`
+
+                    li.append(h2, h3, p, span)
+
+                    ulSetores.appendChild(li)
+                })
+
+            }
         })
     }
 }
-
-rendrizandosetores.setores()
+Rendrizandosetores.setores()

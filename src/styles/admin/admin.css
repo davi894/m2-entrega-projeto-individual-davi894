@@ -12,6 +12,7 @@ main {
 article {
   border: 1px black solid;
   margin-top: 1rem;
+  padding: 1rem;
 }
 
 #admin__form {
@@ -56,6 +57,7 @@ article {
   gap: 1rem;
   overflow-x: auto;
   max-width: 80%;
+  margin-top: 3rem;
 }
 
 .admin__li {
@@ -102,3 +104,25 @@ article {
   font-weight: 900;
   text-align: center;
 }
+
+#lista__ul__empresas {
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.admin__empresas {
+  padding: 1rem;
+  border: 1px solid black;
+}
+
+#admin__ul__setores {
+  margin-top: 1rem;
+}
+
+/* {
+  border: solid 1px black;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+} */
