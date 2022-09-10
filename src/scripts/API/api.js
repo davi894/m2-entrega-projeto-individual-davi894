@@ -61,16 +61,16 @@ class Api {
                     localStorage.setItem("TOKEN:Token", resp.token)
                     localStorage.setItem("ID:Id", resp.uuid)
                     window.location.replace("/src/pages/admin/admin.html")
-                } else if (!resp.is_admin) {
+                } else if (!resp.is_admin && resp.token) {
                     alert("O funcionário Logou")
                     localStorage.setItem("TOKEN:Token", resp.token)
                     localStorage.setItem("ID:Id", resp.uuid)
-                    window.location.replace(".src/pages/funcionarios.html")
+                    window.location.replace("/src/pages/admin/pages/funcionarios.html")
                 } else {
                     alert("logou em anônimo")
                     localStorage.setItem("TOKEN:Token", resp.token)
                     localStorage.setItem("ID:Id", resp.uuid)
-                    window.location.replace(".src/pages/anonimo.html")
+                    window.location.replace("/src/pages/anonimo.html")
                 }
             }).catch(err => {
                 alert("dados ou usuário inválido")
@@ -113,57 +113,59 @@ class Api {
     /*ADMIN--SECTORES*/
 
     static async listarTodosOsSetores() {
-        const todosSetores = await fetch(`${this.URLbase}sectors`, {
+        return await fetch(`${this.URLbase}sectors`, {
             method: "GET",
             headers: this.headers
         })
             .then(resp => resp.json())
             .then(resp => resp)
-        return todosSetores
+
     }
 
     /*ADMIN--DEPARTAMENT*/
 
-    static async DeleterDepartament0(idDepartamento) {
+    static async DeleterDepartamento(idDepartamento) {
+        console.log(idDepartamento)
         await fetch(`${this.URLbase}departments/${idDepartamento}`, {
             method: "DELETE",
-
+            headers: this.headers
         })
-            .then(resp => resp.json())
-            .then(resp => resp)
+            .then(resp => console.log(resp))
     }
 
-    static async contratarFuncionario(uuidContratado) {
+    static async contratarFuncionario(body) {
+        console.log(body)
         await fetch(`${this.URLbase}departments/hire/`, {
             method: "PATCH",
             headers: this.headers,
-            body: JSON.stringify(uuidContratado)
+            body: JSON.stringify(body)
         })
             .then(resp => resp.json())
-            .then(resp => resp)
+            .then(resp => console.log(resp))
     }
 
     static async demitirFuncionarios(uuidDemitirFuncionario) {
-        await fetch(`${this.URLbase}/${uuidDemitirFuncionario}`, {
+        console.log(uuidDemitirFuncionario)
+        await fetch(`${this.URLbase}departments/dismiss/${uuidDemitirFuncionario}`, {
             method: "PATCH",
             headers: this.headers
         })
             .then(resp => resp.json())
-            .then(resp => resp)
+            .then(resp => console.log(resp))
     }
 
     static async listarTodosOsdepartamentosDeEmpresa(uuidDepartamento) {
-        const todosOsDepratemntos = await fetch(`${this.URLbase}/${uuidDepartamento}`, {
+        console.log(uuidDepartamento)
+        return await fetch(`${this.URLbase}departments/${uuidDepartamento}`, {
             method: "GET",
             headers: this.headers
         })
             .then(resp => resp.json())
             .then(resp => resp)
-        return todosOsDepratemntos
     }
 
     static async listarTodosOsdepartamentos() {
-        await fetch(`${this.URLbase}departments`, {
+        return await fetch(`${this.URLbase}departments`, {
             method: "GET",
             headers: this.headers
         })
@@ -171,36 +173,46 @@ class Api {
             .then(resp => resp)
     }
 
-    static async criarDepratamento(body) {
+    static async criarDepartamento(body) {
+        console.log(body)
+
         await fetch(`${this.URLbase}departments`, {
             method: "POST",
             headers: this.headers,
             body: JSON.stringify(body)
         })
             .then(resp => resp.json())
-            .then(resp => resp)
+            .then(resp => console.log(resp))
+    }
+
+    static async editarDepartamento(body, uuid) {
+        await fetch(`${this.URLbase}departments/${uuid}`, {
+            method: "PATCH",
+            headers: this.headers,
+            body: JSON.stringify(body)
+        })
+            .then(resp => resp.json())
+            .then(resp => console.log(resp))
     }
 
     /*ADMIN--COMPANY*/
 
     static async cadastrarEmpresa(cadastroEmpresa) {
+        console.log(cadastroEmpresa)
         await fetch(`${this.URLbase}companies`, {
             method: "POST",
             headers: this.headers,
             body: JSON.stringify(cadastroEmpresa)
         })
             .then(resp => resp.json())
-            .then(resp => resp)
+            .then(resp => console.log(resp))
+            .catch(ero => console.log(ero))
     }
 
     /*EMPLYEES*/
 
-    static async UpdateEmployeeInformation(dadosAtualizado) {
-        /*  {
-  "username": "Bertoldo",
-  "email": "bertoldo@mail.com",
-  "password": "senha123"
-} */
+    static async funcionariosEditandoPropriosdados(dadosAtualizado) {
+
         await fetch(`${this.URLbase}users`, {
             method: "PATCH",
             headers: this.headers,
@@ -210,24 +222,31 @@ class Api {
             .then(resp => resp)
     }
 
-    static async listarTodosOsFuncionariosDoMes() {
-        const EmployeesOfTheMonth = await fetch(`${this.URLbase}users/departments/coworkers`, {
+    static async ListarosDepartamentosdaempresadofuncionáriologado() {
+        return await fetch(`${this.URLbase}users/departments`, {
             method: "GET",
             headers: this.headers
         })
             .then(resp => resp.json())
             .then(resp => resp)
-        return EmployeesOfTheMonth
     }
 
-    static async listartodosOsFuncionariosDoDeparatmentoDoFuncionario() {
-        const ListEmployees = await fetch(`${this.URLbase}users/departments/coworkers`, {
+    static async listartodosOsFuncionariosDoDepartamentoDoFuncionario() {
+        return await fetch(`${this.URLbase}users/departments/coworker`, {
             method: "GET",
             headers: this.headers
         })
             .then(resp => resp.json())
             .then(resp => resp)
-        return ListEmployees
+    }
+
+    static async BuscasInformaçõesdofuncionariologado() {
+        return await fetch(`${this.URLbase}users/profile`, {
+            method: "GET",
+            headers: this.headers
+        })
+            .then(resp => resp.json())
+            .then(resp => resp)
     }
 }
 export { Api }

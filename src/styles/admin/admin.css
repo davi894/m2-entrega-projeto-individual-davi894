@@ -15,6 +15,17 @@ article {
   padding: 1rem;
 }
 
+#listandoSetores {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 900;
+}
+
+.setores {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
 #admin__form {
   display: flex;
   flex-direction: column;
@@ -57,7 +68,7 @@ article {
   gap: 1rem;
   overflow-x: auto;
   max-width: 80%;
-  margin-top: 3rem;
+  margin-top: 7rem;
 }
 
 .admin__li {
@@ -89,10 +100,14 @@ article {
   gap: 4px;
 }
 
-#admin_nome {
-}
-
-#admin__email {
+#admin__semDepartamentos,
+#admin__listarUsuarios,
+#lista__ul__empresas,
+#admin__ul__setores,
+#admin__ul__ListarTodosOsDepartamentosDaEmpresa,
+#admin__ul__todosOsDepartamentos {
+  max-height: 200px;
+  overflow-y: auto;
 }
 
 #admin_section__setores {
@@ -119,10 +134,8 @@ article {
   margin-top: 1rem;
 }
 
-/* {
-  border: solid 1px black;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  display: flex;
-} */
+@media (max-width: 532px) {
+  #admin__NomeImgEmail {
+    flex-direction: column;
+  }
+}

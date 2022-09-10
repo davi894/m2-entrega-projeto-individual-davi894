@@ -2,6 +2,21 @@
   background-color: black;
   color: white;
   border: none;
+  cursor: pointer;
+}
+
+.funcionario__section {
+  top: 61%;
+  left: 1%;
+  width: 10rem;
+  position: absolute;
+}
+
+.funcionario__sairModal {
+  position: absolute;
+  left: 102%;
+  top: 1%;
+  cursor: pointer;
 }
 
 @media (max-width: 537px) {

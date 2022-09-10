@@ -40,7 +40,6 @@
 
         <section id="admin_section__empresas">
 
-
             <article id="admin_section__listarTodososDepartamentos">
                 <h2 class="admin__form__h2">Listar todos os departamentos</h2>
                 <ul id="admin__ul__todosOsDepartamentos">
@@ -49,9 +48,28 @@
             </article>
 
             <article id="admin_section__listarTodososDepartamentosdeUmaEmpresa">
-                <h2 class="admin__form__h2">Listar os Todos os departamentos a empresa</h2>
+                <h2 class="admin__form__h2">Listar os Todos os departamentos da empresa</h2>
+                <select name="" id="admin__ListadoDepartamentosDeUmaEmpresa">
+                </select>
+                <button id="admin__btn__selcet">Departamentos de empresas</button>
                 <ul id="admin__ul__ListarTodosOsDepartamentosDaEmpresa"></ul>
             </article>
+
+            <article id="admin_section__criarEmpresa">
+                <h2 class="admin__form__h2">Cadastrar Empresa</h2>
+                <form action="" id="admin__form">
+                    <label for="">Nome </label>
+                    <input type="text" id="admin_empresa">
+                    <label for="">Descrição</label>
+                    <input type="text" id="admin_empresa__description">
+                    <label for="">Abertura</label>
+                    <input type="text" id="admin_open__wokrr_uuid">
+                    <label for="">uuid setor</label>
+                    <input type="text" id="admin_name__setor_uuid">
+                    <button id="admin__CriarEmpresa">criar</button>
+                </form>
+            </article>
+
 
             <article id="admin_section__criarDepartamento">
                 <h2 class="admin__form__h2">Criar Departamento</h2>
@@ -69,10 +87,10 @@
             <article id="admin_section__contratar">
                 <h2 class="admin__form__h2">Contratar</h2>
                 <form action="" id="admin__form">
-                    <label for="" id="admin__uuidFuncionario">uuid do funcionário</label>
-                    <input type="text">
-                    <label for="" id="admin__uuidDapartamento">uuid do departamentos do funcionário</label>
-                    <input type="text">
+                    <label for="">uuid do funcionário</label>
+                    <input type="text" id="admin__uuidFuncionario">
+                    <label for="">uuid do departamentos para onde vai o funcionário</label>
+                    <input type="text" id="admin__uuidDapartamento">
                     <button id="admin__contratar">contratar</button>
                 </form>
             </article>
@@ -92,6 +110,8 @@
 
                     <label for="">Descrição</label>
                     <input type="text" id="admin__departamento">
+                    <label for="">uuid Departamento</label>
+                    <input type="text" id="admin__uuid">
                     <button id="admin__ediarDep">editar</button>
                 </form>
             </article>

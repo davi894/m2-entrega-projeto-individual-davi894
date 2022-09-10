@@ -4,6 +4,9 @@ const usuariosSemDepratamentos = await Api.usuariosSemDepartamentos()
 
 const usuarios = await Api.listarTodosusuarios()
 
+const admin__kindofwork = document.querySelector("#admin__kindofwork")
+
+const admin__nivelProfissional = document.querySelector("#admin__nivelProfissional")
 
 class HomePage {
 
@@ -66,14 +69,10 @@ class HomePage {
 
     static async buscarUsuarios() {
 
-        const admin__kindofwork = document.querySelector("#admin__kindofwork")
-        const admin__nivelProfissional = document.querySelector("#admin__nivelProfissional")
-
         const select = document.querySelector("#admin__select")
 
         usuarios.forEach((elem) => {
             if (!elem.is_admin) {
-             //   console.log(elem)
                 const option = document.createElement("option")
                 option.innerText = elem.username
                 option.value = elem.uuid
@@ -85,23 +84,29 @@ class HomePage {
 
         btnBuscar.addEventListener("click", (e) => {
             e.preventDefault()
-            console.log(e.target)
-            console.log(select.value)
-            usuarios.forEach((elem) => {
-                if (select.value === elem.uuid) {
-                    const body = {
-                        kind_of_work: admin__kindofwork.value = elem.kind_of_work,
-                        professional_level: admin__nivelProfissional.value = elem.professional_level
-                    }
-                    const btneditar = document.querySelector("#admin__btn__editarUser")
-                    btneditar.addEventListener("click", async (e) => {
-                        e.preventDefault()
-                        console.log(body, select.value)
-                        console.log(e.target)
-                        await Api.adminEditarDadosDoFuncionario(body, select.value)
-                    })
-                }
+
+            const usuariosFilter = usuarios.filter((elem) => {
+                return select.value === elem.uuid
+
             })
+            console.log(usuariosFilter)
+            admin__kindofwork.value = usuariosFilter[0].kind_of_work
+            admin__nivelProfissional.value = usuariosFilter[0].professional_level
+
+            /* console.log(admin__kindofwork.value = usuariosFilter[0].kind_of_work,
+                admin__nivelProfissional.value = usuariosFilter[0].professional_level) */
+            const btneditar = document.querySelector("#admin__btn__editarUser")
+            btneditar.addEventListener("click", async (e) => {
+                e.preventDefault()
+
+
+               /*  console.log(admin__kindofwork.value, admin__nivelProfissional.value) */
+                await Api.adminEditarDadosDoFuncionario({
+                    kind_of_work: admin__kindofwork.value,
+                    professional_level: admin__nivelProfissional.value
+                }, select.value)
+            })
+
         })
 
     }

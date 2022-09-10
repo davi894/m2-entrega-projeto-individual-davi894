@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
+    <link rel="stylesheet" href="../../../styles/employees/employees.css">
     <link rel="stylesheet" href="../../../styles/global.css">
     <link rel="stylesheet" href="../../../styles/reset.css">
     <link rel="stylesheet" href="../../../styles/admin/admin.css">
@@ -18,9 +20,10 @@
         <div id="admin__NomeImgEmail">
             <img id="admin__img" src="../../../assets/svg/person-circle-outline.svg" alt="">
             <div id="admin__dados">
-                <span id="admin__nome">nome</span>
-                <span id="admin__email">nome@gmail.com</span>
+                <span id="admin__nome"> nome </span>
+                <span id="admin__email"> nome@gmail.com </span>
             </div>
+            <button id="funcionario__btn__EditarDados">Editar dados</button>
         </div>
     </header>
 
@@ -28,19 +31,28 @@
         <ul id="admin__ul">
             <li class="admin__li"> <a class="admin__a" href="../../../pages/admin/pages/empresas.html">empresas</a>
             </li>
+            <li class="admin__li"> <a class="admin__a" href="../../../pages/admin/pages/setores.html">setores</a></li>
             <li class="admin__li"> <a class="admin__a"
                     href="../../../pages/admin/pages/departamento.html">departamentos</a> </li>
             <li class="admin__li"> <a class="admin__a"
                     href="../../../pages/admin/pages/funcionarios.html">funcionários</a>
             </li>
-            <li class="admin__li"><a class="admin__a" href="../admin.html">Página principal</a></li>
+            <li class="admin__li"><a class="admin__a" href="../admin.html">Página Principal</a></li>
         </ul>
 
-        <section id="admin_section__funcionarios">
+        <section id="admin_section">
+            <ul id="admin__listarUsuarios">
 
+            </ul>
+
+            <ul id="admin__listarUsuarios">
+
+            </ul>
         </section>
     </main>
 
+
+    <script type="module" src="../../../scripts/models/fucionarios.js"></script>
 </body>
 
 </html>
