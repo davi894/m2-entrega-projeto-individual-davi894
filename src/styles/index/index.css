@@ -14,10 +14,11 @@ main {
 h1 {
   font-size: 2rem;
   font-weight: 900;
+  color: var(--white--color);
 }
 /* header */
-
 header {
+  background-color: var(--black--color);
   height: 2rem;
   max-width: 100vw;
   padding: 0.8rem;

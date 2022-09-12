@@ -53,64 +53,49 @@ class Funcionarios {
 
     }
 
-    static async funcioanriosDoMesmoDepartemnto() {
+    static async listarDepartamentosdaEmpresaDoFuncionario() {
+        const ulFuncionariosDoMesmoDepratamento = document.querySelector("#admin__listaFuncionarios")
         const FuncioanriosMesmoDepratemento = await Api.ListarosDepartamentosdaempresadofuncionáriologado()
 
         FuncioanriosMesmoDepratemento.forEach((elm) => {
 
             const li = document.createElement("li")
+
+            const h2Descricao = document.createElement("h2")
+            h2Descricao.innerText = elm.departments["description"]
+            const h2Nome = document.createElement("h2")
+            h2Nome.innerText = elm.departments["name"]
+            li.append(h2Descricao, h2Nome)
+            ulFuncionariosDoMesmoDepratamento.appendChild(li)
         })
-
-        /*  {
-             "uuid": "3a1746a3-c8e4-4a77-8e55-5de43ef245f8",
-                 "name": "Nerd lab",
-                     "opening_hours": "09:00",
-                         "description": "Criamos um site rapidão pra você",
-                             "sector_uuid": "17247c6b-5205-4067-9695-278fcb97d592",
-                                 "departments": [
-                                     {
-                                         "uuid": "fc65d0be-507e-4c6e-badc-ccc4417ef980",
-                                         "name": "TI",
-                                         "description": "Departamento de TI",
-                                         "company_uuid": "3a1746a3-c8e4-4a77-8e55-5de43ef245f8"
-                                     },
-                                     {
-                                         "uuid": "09b216d6-6f25-4ad6-89f4-6eece6602feb",
-                                         "name": "RH",
-                                         "description": "Recrutamento e seleção",
-                                         "company_uuid": "3a1746a3-c8e4-4a77-8e55-5de43ef245f8"
-                                     }
-                                 ]
-         } */
-
     }
 
     static async listarColegasDoMesmoDepartamento() {
 
-        const colegasDepratamento = await Api.listartodosOsFuncionariosDoDepartamentoDoFuncionario()
-        console.log(await colegasDepratamento)
+        const ulFuncionariosDoMesmoDepratamento = document.querySelector("#admin__listaFuncionarios")
 
+        const colegasDepartamento = await Api.listartodosOsFuncionariosDoDepartamentoDoFuncionario()
+        console.log(await colegasDepartamento)
 
-        /* {
-           "uuid": "fc65d0be-507e-4c6e-badc-ccc4417ef980",
-               "name": "TI",
-                   "description": "Departamento de TI",
-                       "company_uuid": "3a1746a3-c8e4-4a77-8e55-5de43ef245f8",
-                           "users": [
-                               {
-                                   "uuid": "0212ff4a-94de-4c97-8fbf-e7e4bb06e258",
-                                   "username": "Teste",
-                                   "email": "mail@mail.com",
-                                   "password": "$2a$08$YijK0p9TBsDW9UIyc3NPjuoFzHq3/WGUWXTp/SlNeEWCITWpYqLwO",
-                                   "professional_level": "sênior",
-                                   "kind_of_work": null,
-                                   "is_admin": false,
-                                   "department_uuid": "fc65d0be-507e-4c6e-badc-ccc4417ef980"
-                               }
-                           ]
-       } */
+        colegasDepartamento.forEach((elm) => {
+            const li = document.createElement("li")
+
+            const name = document.createElement("h2")
+            name.innerText = elm.name
+            const description = document.createElement("h2")
+            description.innerText = elm.description
+            const usersUsername = document.createElement("h2")
+            usersUsername.innerText = elm.users["username"]
+            const usersProfessional_level = document.createElement("h2")
+            usersProfessional_level.innerText = elm.users["professional_level"]
+            const userskind_of_work = document.createElement("h2")
+            userskind_of_work.innerText = elm.users["kind_of_work"]
+
+            li.append(name, description, usersUsername, usersProfessional_level, userskind_of_work)
+            ulFuncionariosDoMesmoDepratamento.appendChild(li)
+        })
     }
 }
 Funcionarios.functionEditandoFuncionario()
-Funcionarios.funcioanriosDoMesmoDepartemnto()
+Funcionarios.listarDepartamentosdaEmpresaDoFuncionario()
 Funcionarios.listarColegasDoMesmoDepartamento()
