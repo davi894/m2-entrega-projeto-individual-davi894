@@ -17,10 +17,11 @@ main {
 
 /* header */
 
-#head__cadastro {
+#heade__cadastro {
   height: 2rem;
   max-width: 100vw;
   padding: 0.8rem;
+  background-color: #000000;
 }
 
 #head__h1__cadastro {
@@ -28,6 +29,12 @@ main {
   top: 1rem;
   font-size: 2rem;
   left: 1rem;
+  font-weight: 900;
+}
+
+#head__h1 {
+  color: #ffffff;
+  font-size: 2rem;
   font-weight: 900;
 }
 /* fomr */
@@ -45,7 +52,6 @@ main {
 #cadastro__label__professional_level,
 #cadastro__label__password {
   min-width: 80%;
-  font-size: 1.5rem;
 }
 
 /* input */
