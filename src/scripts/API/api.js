@@ -108,7 +108,12 @@ class Api {
         })
             .then(resp => resp.json())
             .then(resp => {
-                alert("dados do funcionário editado com sucesso")
+                console.log(resp)
+                if (resp.error) {
+                    alert(resp.error)
+                }else{
+                    alert("usuário editado")
+                }
                 return resp
             })
     }
