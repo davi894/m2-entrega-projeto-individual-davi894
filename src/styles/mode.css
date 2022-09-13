@@ -1,3 +1,8 @@
+:root {
+  --white--cor: #ffff;
+  --black--cor: #000000;
+}
+
 .model {
   background-color: var(--black--cor);
   color: var(--white--cor);

@@ -1,3 +1,9 @@
+:root {
+  --white--cor: #ffff;
+  --black--cor: #000000;
+}
+
+
 #funcionario__btn__EditarDados {
   background-color: var(--black--cor);
   color: var(--white--cor);
