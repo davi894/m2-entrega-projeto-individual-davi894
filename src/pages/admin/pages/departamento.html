@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../../../styles/global.css">
     <link rel="stylesheet" href="../../../styles/reset.css">
     <link rel="stylesheet" href="../../../styles/admin/admin.css">
+    <link rel="stylesheet" href="/src/styles/mode.css">
     <title>Departamentos</title>
 </head>
 
@@ -23,6 +24,7 @@
                 <span id="admin__email">nome@gmail.com</span>
             </div>
         </div>
+        <button class="mode">mode</button>
     </header>
 
     <main>
@@ -32,9 +34,6 @@
             <li class="admin__li"> <a class="admin__a" href="../../../pages/admin/pages/setores.html">setores</a></li>
             <li class="admin__li"> <a class="admin__a"
                     href="../../../pages/admin/pages/departamento.html">departamentos</a> </li>
-            <li class="admin__li"> <a class="admin__a"
-                    href="../../../pages/admin/pages/funcionarios.html">funcionários</a>
-            </li>
             <li class="admin__li"><a class="admin__a" href="../admin.html">Página Principal</a></li>
         </ul>
 
@@ -65,6 +64,7 @@
                     <label for="">Abertura</label>
                     <input type="text" id="admin_open__wokrr_uuid">
                     <label for="">uuid setor</label>
+                    <select name="" id=""></select>
                     <input type="text" id="admin_name__setor_uuid">
                     <button id="admin__CriarEmpresa">criar</button>
                 </form>
@@ -79,6 +79,7 @@
                     <label for="">Descrição</label>
                     <input type="text" id="admin_name__description">
                     <label for="">uuid da Empresa</label>
+                    <select name="" id=""></select>
                     <input type="text" id="admin_name__company_uuid">
                     <button id="admin__CriarDepartamento">criar</button>
                 </form>
@@ -90,6 +91,7 @@
                     <label for="">uuid do funcionário</label>
                     <input type="text" id="admin__uuidFuncionario">
                     <label for="">uuid do departamentos para onde vai o funcionário</label>
+                    <select name="" id=""></select>
                     <input type="text" id="admin__uuidDapartamento">
                     <button id="admin__contratar">contratar</button>
                 </form>
@@ -99,6 +101,7 @@
                 <h2 class="admin__form__h2">Demitir Funcionário</h2>
                 <form action="" id="admin__form">
                     <label for="">uuid do funcionários</label>
+                    <select name="" id=""></select>
                     <input type="text" id="demitir" name="" id="">
                     <button id="admin__demitirFuncionario">demitir</button>
                 </form>
@@ -111,6 +114,7 @@
                     <label for="">Descrição</label>
                     <input type="text" id="admin__departamento">
                     <label for="">uuid Departamento</label>
+                    <select name="" id=""></select>
                     <input type="text" id="admin__uuid">
                     <button id="admin__ediarDep">editar</button>
                 </form>
@@ -121,6 +125,7 @@
                 <form action="" id="admin__form">
 
                     <label for="">uuid do departamento</label>
+                    <select name="" id=""></select>
                     <input type="text" id="admin__deletarDepartamento">
                     <button id="admin__deletarDep">deletar</button>
 
@@ -130,7 +135,9 @@
         </section>
     </main>
 
-    <script type="module" src="../../../scripts/models/departamento.js"></script>
+    <script type="module" src="/src/scripts/models/departamento.js"></script>
+    <script type="module" src="/src/scripts/models/mode.js"></script>
+
 </body>
 
 </html>

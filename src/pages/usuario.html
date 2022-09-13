@@ -4,17 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../../../styles/global.css">
-    <link rel="stylesheet" href="../../../styles/funcionarios/funcionarios.css">
-    <link rel="stylesheet" href="../../../styles/reset.css">
-    <link rel="stylesheet" href="../../../styles/admin/admin.css">
+
+    <link rel="stylesheet" href="../styles/admin/admin.css">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/anonymous/anonymous.css">
     <link rel="stylesheet" href="/src/styles/mode.css">
-    <title>Funcionários</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página do Usuário</title>
 </head>
 
 <body>
+
     <header id="head__admin">
         <h1 id="head__admin__h1">Multi-Empresas</h1>
         <div id="admin__NomeImgEmail">
@@ -25,25 +27,22 @@
             </div>
             <button id="funcionario__btn__EditarDados">Editar dados</button>
         </div>
-        <button class="mode">mode</button>
+          <button class="mode">mode</button>
     </header>
 
     <main>
 
-        <section id="admin_section">
-            <ul id="admin__listaFuncionarios">
+        <ul id="admin__ul">
+            <li class="admin__li"> <a class="admin__a" href="">empresas</a> </li>
+          
+        </ul>
 
-            </ul>
-
-            <ul id="admin__listarDepartamentosEmpresa">
-
-            </ul>
-        </section>
+        <ul id="lista__ul__empresas">
+        </ul>
     </main>
-
+    <script type="module" src="/src/scripts/models/ListartTodasEmpresas.js"></script>
+    <script type="module" src="/src/scripts/models/fucionarios.js"></script>
     <script type="module" src="/src/scripts/models/mode.js"></script>
-    <script type="module" src="../../../scripts/models/fucionarios.js"></script>
-    
 </body>
 
 </html>

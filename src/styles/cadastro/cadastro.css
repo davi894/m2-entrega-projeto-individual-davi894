@@ -21,7 +21,7 @@ main {
   height: 2rem;
   max-width: 100vw;
   padding: 0.8rem;
-  background-color: #000000;
+  background-color: var(--black--cor);
 }
 
 #head__h1__cadastro {
@@ -33,7 +33,7 @@ main {
 }
 
 #head__h1 {
-  color: #ffffff;
+  color: var(--white--cor);
   font-size: 2rem;
   font-weight: 900;
 }

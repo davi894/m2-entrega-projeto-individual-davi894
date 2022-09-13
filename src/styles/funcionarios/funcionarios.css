@@ -1,6 +1,6 @@
 #funcionario__btn__EditarDados {
-  background-color: var(--black--color);
-  color: var(--white--color);
+  background-color: var(--black--cor);
+  color: var(--white--cor);
   border: none;
   cursor: pointer;
 }

@@ -67,10 +67,10 @@ class Api {
                     localStorage.setItem("ID:Id", resp.uuid)
                     window.location.replace("/src/pages/admin/pages/funcionarios.html")
                 } else {
-                    alert("logou em anônimo")
+                    alert("o usuário Logou")
                     localStorage.setItem("TOKEN:Token", resp.token)
                     localStorage.setItem("ID:Id", resp.uuid)
-                    window.location.replace("/src/pages/anonimo.html")
+                    window.location.replace("/src/pages/usuario.html")
                 }
             }).catch(err => {
                 alert("dados ou usuário inválido")
@@ -107,7 +107,13 @@ class Api {
             body: JSON.stringify(body)
         })
             .then(resp => resp.json())
-            .then(resp => console.log(resp))
+            .then(resp => {
+                alert("dados do funcionário editado com sucesso")
+                return resp
+            }).catch(err => {
+                alert("Nível Profissonal aceitável:estagiario, junior, pleno,estagiario,senior \n tipo de trabalho aceitável: home office, hibrido, presencial")
+                return err
+            })
     }
 
     /*ADMIN--SECTORES*/
@@ -130,7 +136,10 @@ class Api {
             method: "DELETE",
             headers: this.headers
         })
-            .then(resp => console.log(resp))
+            .then(resp => {
+                alert("Departamento deletado com sucesso")
+                console.log(resp)
+            })
     }
 
     static async contratarFuncionario(body) {

@@ -77,4 +77,4 @@ class Rendrizandosetores {
     }
 }
 Rendrizandosetores.listandoseroresExistentes()
-//Rendrizandosetores.setores()
+Rendrizandosetores.setores()
