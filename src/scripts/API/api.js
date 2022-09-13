@@ -110,9 +110,6 @@ class Api {
             .then(resp => {
                 alert("dados do funcionário editado com sucesso")
                 return resp
-            }).catch(err => {
-                alert("Nível Profissonal aceitável:estagiario, junior, pleno,estagiario,senior \n tipo de trabalho aceitável: home office, hibrido, presencial")
-                return err
             })
     }
 
@@ -150,7 +147,10 @@ class Api {
             body: JSON.stringify(body)
         })
             .then(resp => resp.json())
-            .then(resp => console.log(resp))
+            .then(resp => {
+                alert("Funcionário foi contratado")
+                console.log(resp)
+            })
     }
 
     static async demitirFuncionarios(uuidDemitirFuncionario) {
@@ -160,7 +160,10 @@ class Api {
             headers: this.headers
         })
             .then(resp => resp.json())
-            .then(resp => console.log(resp))
+            .then(resp => {
+                alert("Funcionário foi demitido ")
+                console.log(resp)
+            })
     }
 
     static async listarTodosOsdepartamentosDeEmpresa(uuidDepartamento) {
@@ -191,7 +194,10 @@ class Api {
             body: JSON.stringify(body)
         })
             .then(resp => resp.json())
-            .then(resp => console.log(resp))
+            .then(resp => {
+                alert("Departamento criado")
+                console.log(resp)
+            })
     }
 
     static async editarDepartamento(body, uuid) {
@@ -201,7 +207,10 @@ class Api {
             body: JSON.stringify(body)
         })
             .then(resp => resp.json())
-            .then(resp => console.log(resp))
+            .then(resp => {
+                alert("Departamento editado")
+                console.log(resp)
+            })
     }
 
     /*ADMIN--COMPANY*/
@@ -214,7 +223,10 @@ class Api {
             body: JSON.stringify(cadastroEmpresa)
         })
             .then(resp => resp.json())
-            .then(resp => console.log(resp))
+            .then(resp => {
+                alert("Empresa criada")
+                console.log(resp)
+            })
             .catch(ero => console.log(ero))
     }
 
