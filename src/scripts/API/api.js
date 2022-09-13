@@ -61,7 +61,7 @@ class Api {
                     localStorage.setItem("TOKEN:Token", resp.token)
                     localStorage.setItem("ID:Id", resp.uuid)
                     window.location.replace("/src/pages/admin/admin.html")
-                } else if (!resp.is_admin && resp.token) {
+                } else if (!resp.is_admin) {
                     alert("O funcionário Logou")
                     localStorage.setItem("TOKEN:Token", resp.token)
                     localStorage.setItem("ID:Id", resp.uuid)
@@ -237,7 +237,7 @@ class Api {
             headers: this.headers
         })
             .then(resp => resp.json())
-            .then(resp => resp)
+            .then(resp => console.log(resp))
     }
 
     static async listartodosOsFuncionariosDoDepartamentoDoFuncionario() {

@@ -1,14 +1,9 @@
 import { Api } from "../API/api.js"
 
-/* await Api.DeleterDepartamento()
-await Api.contratarFuncionario()
-await Api.demitirFuncionarios()
-*/
+const todosOsUsuarios = await Api.listarTodosusuarios()
+const todosOsSetores = await Api.listarTodosOsSetores()
 const todosOsDepartamentos = await Api.listarTodosOsdepartamentos()
-/* 
-await Api.cadastrarEmpresa()
- */
-
+const listaDeEmpresas = await Api.ListarEmpresas()
 class Departamento {
 
     static rendrizaListartodososdepartamentos() {
@@ -184,20 +179,155 @@ class Departamento {
             await Api.cadastrarEmpresa(body)
             console.log(body)
         })
+    }
 
-        /**/
-        /*   <label for="">Nome </label>
-          <input type="text" id="admin_empresa">
-          <label for="">Descrição</label>
-          <input type="text" id="admin_empresa__description">
-          <label for="">Abertura</label>
-          <input type="text" id="admin_open__wokrr_uuid">
-          <label for="">uuid setor</label>
-          <input type="text" id="admin_name__setor_uuid">
-          <button id="admin__CriarEmpresa">criar</button> */
+    static async uuidSetores() {
+        const selectCadastrar = document.querySelector("#admin__catdastrarEmpresas")
+
+        todosOsSetores.forEach((elm) => {
+            const option = document.createElement("option")
+            option.innerText = elm.description
+            option.value = elm.uuid
+            selectCadastrar.append(option)
+        })
+
+        const btnuuidSetor = document.querySelector("#buscar__uuid__setor")
+        btnuuidSetor.addEventListener("click", (e) => {
+            e.preventDefault()
+            const inputuuidStor = document.querySelector("#admin_name__setor_uuid")
+            inputuuidStor.value = selectCadastrar.value
+        })
+    }
+
+    static async uuidEmpresa() {
+        const selectCadastrar = document.querySelector("#admin__catdastrarEmpresas")
+
+        todosOsSetores.forEach((elm) => {
+            const option = document.createElement("option")
+            option.innerText = elm.description
+            option.value = elm.uuid
+            selectCadastrar.append(option)
+        })
+
+        const btnuuidSetor = document.querySelector("#buscar__uuid__setor")
+        btnuuidSetor.addEventListener("click", (e) => {
+            e.preventDefault()
+            const inputuuidStor = document.querySelector("#admin_name__setor_uuid")
+            inputuuidStor.value = selectCadastrar.value
+        })
+    }
+
+    static async uuidFuncinario() {
+
+
+        const contratar = document.querySelector("#admin__uudi__Funcionario_contratar")
+        const demitir = document.querySelector("#funcioanrios__uuid__demitir")
+
+        todosOsUsuarios.forEach((elm) => {
+            if (!elm.is_admin && !elm.department_uuid) {
+                const option = document.createElement("option")
+                option.value = elm.uuid
+                option.innerText = elm.username
+                contratar.appendChild(option)
+            } else if (!elm.is_admin && elm.department_uuid) {
+                const option = document.createElement("option")
+                option.value = elm.uuid
+                option.innerText = elm.username
+                demitir.appendChild(option)
+            }
+        })
+
+        const btnContratar = document.querySelector("#uuid__funcionario__contratamento")
+        btnContratar.addEventListener("click", (e) => {
+            e.preventDefault()
+            console.log(e.target)
+            document.querySelector("#admin__uuidFuncionario").value = contratar.value
+        })
+
+
+        const btnDemitir = document.querySelector("#buscar_uuid_Funcionário_demitir")
+        btnDemitir.addEventListener("click", (e) => {
+            e.preventDefault()
+            console.log(e.target)
+            document.querySelector("#demitir").value = demitir.value
+        })
+    }
+
+    static async uuidDepartamento() {
+        const contratar = document.querySelector("#admin__deparatemnto__uuid__funcionarios")
+        const deparatemntoUuid = document.querySelector("#admin__deparatemnto__uuid__funcionarios")
+        const editardescricao = document.querySelector("#uuid_deparatemnto_editarDescricao")
+        const deletarDep = document.querySelector("#admin__deletar__departamento")
+
+        todosOsDepartamentos.forEach((elm) => {
+            const optin = document.createElement("option")
+            optin.innerText = elm.name
+            optin.value = elm.uuid
+            editardescricao.appendChild(optin)
+            contratar.appendChild(optin)
+            editardescricao.appendChild(optin)
+        })
+
+        todosOsDepartamentos.forEach((elm) => {
+            const optin = document.createElement("option")
+            optin.innerText = elm.name
+            optin.value = elm.uuid
+
+            editardescricao.appendChild(optin)
+
+        })
+        todosOsDepartamentos.forEach((elm) => {
+            const optin = document.createElement("option")
+            optin.innerText = elm.name
+            optin.value = elm.uuid
+
+            deletarDep.appendChild(optin)
+        })
+
+        const btnContaratrDep = document.querySelector("#buscar_uuid_departamento_contratar")
+        btnContaratrDep.addEventListener("click", (e) => {
+            e.preventDefault()
+            document.querySelector("#admin__uuidDapartamento").value = contratar.value
+        })
+
+        const btnDeletarDep = document.querySelector("#btn__deletar__deparatemnto")
+        btnDeletarDep.addEventListener("click", (e) => {
+            e.preventDefault()
+            console.log(e.target)
+            document.querySelector("#admin__deletarDepartamento").value = deletarDep.value
+        })
+
+        const btneditarDep = document.querySelector("#admin__editarDep_descricao")
+        btneditarDep.addEventListener("click", (e) => {
+            e.preventDefault()
+            console.log(e.target)
+            document.querySelector("#admin__uuid").value = editardescricao.value
+        })
+    }
+
+    static async uuidEmpresa() {
+        const empresaUuid = document.querySelector("#admin__uuid__Empresa")
+
+        listaDeEmpresas.forEach((elm) => {
+
+            const option = document.createElement("option")
+            option.value = elm.uuid
+            option.innerText = elm.name
+            empresaUuid.appendChild(option)
+        })
+
+        const btncriardep = document.querySelector("#uuid__empresa__criarDep")
+        btncriardep.addEventListener("click", (e) => {
+            e.preventDefault()
+            console.log(e.target)
+            document.querySelector("#admin_name__company_uuid").value = empresaUuid.value
+        })
     }
 }
-
+Departamento.uuidDepartamento()
+Departamento.uuidEmpresa()
+Departamento.uuidFuncinario()
+Departamento.uuidSetores()
 Departamento.rendrizaListartodososdepartamentos()
 Departamento.rendrizaListarosTodososdepartamentosaempresa()
 Departamento.rendrizaCriarDepartamento()
@@ -206,14 +336,3 @@ Departamento.rendrizaDemitirFuncionário()
 Departamento.rendrizaEditarDepartamento()
 Departamento.rendrizaDeletarDepartamento()
 Departamento.casdastrarEmpresas()
-/* < !--{
-            "uuid": "fc65d0be-507e-4c6e-badc-ccc4417ef980",
-            "name": "TI",
-            "description": "Departamento de TI",
-            "companies": {
-                "uuid": "3a1746a3-c8e4-4a77-8e55-5de43ef245f8",
-                "name": "Nerd lab",
-                "opening_hours": "09:00",
-                "description": "Criamos um site rapidão pra você",
-                "sector_uuid": "17247c6b-5205-4067-9695-278fcb97d592"
-            } -- > */

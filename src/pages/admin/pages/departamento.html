@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../../../styles/global.css">
-    <link rel="stylesheet" href="../../../styles/reset.css">
-    <link rel="stylesheet" href="../../../styles/admin/admin.css">
+    <link rel="stylesheet" href="/src/styles/global.css">
+    <link rel="stylesheet" href="/src/styles/reset.css">
+    <link rel="stylesheet" href="/src/styles/admin/admin.css">
     <link rel="stylesheet" href="/src/styles/mode.css">
     <title>Departamentos</title>
 </head>
@@ -18,7 +18,7 @@
     <header id="head__admin">
         <h1 id="head__admin__h1">Multi-Empresas</h1>
         <div id="admin__NomeImgEmail">
-            <img id="admin__img" src="../../../assets/svg/person-circle-outline.svg" alt="">
+            <img id="admin__img" src="/src/assets/svg/person-circle-outline.svg" alt="">
             <div id="admin__dados">
                 <span id="admin__nome">nome</span>
                 <span id="admin__email">nome@gmail.com</span>
@@ -29,12 +29,12 @@
 
     <main>
         <ul id="admin__ul">
-            <li class="admin__li"> <a class="admin__a" href="../../../pages/admin/pages/empresas.html">empresas</a>
+            <li class="admin__li"> <a class="admin__a" href="/src/pages/admin/pages/empresas.html">empresas</a>
             </li>
-            <li class="admin__li"> <a class="admin__a" href="../../../pages/admin/pages/setores.html">setores</a></li>
-            <li class="admin__li"> <a class="admin__a"
-                    href="../../../pages/admin/pages/departamento.html">departamentos</a> </li>
-            <li class="admin__li"><a class="admin__a" href="../admin.html">Página Principal</a></li>
+            <li class="admin__li"> <a class="admin__a" href="/src/pages/admin/pages/setores.html">setores</a></li>
+            <li class="admin__li"> <a class="admin__a" href="/src/pages/admin/pages/departamento.html">departamentos</a>
+            </li>
+            <li class="admin__li"><a class="admin__a" href="/src/pages/admin/admin.html">Página Principal</a></li>
         </ul>
 
         <section id="admin_section__empresas">
@@ -64,7 +64,8 @@
                     <label for="">Abertura</label>
                     <input type="text" id="admin_open__wokrr_uuid">
                     <label for="">uuid setor</label>
-                    <select name="" id=""></select>
+                    <select name="" id="admin__catdastrarEmpresas"></select>
+                    <button id="buscar__uuid__setor">buscar uuid setor</button>
                     <input type="text" id="admin_name__setor_uuid">
                     <button id="admin__CriarEmpresa">criar</button>
                 </form>
@@ -79,7 +80,8 @@
                     <label for="">Descrição</label>
                     <input type="text" id="admin_name__description">
                     <label for="">uuid da Empresa</label>
-                    <select name="" id=""></select>
+                    <select name="" id="admin__uuid__Empresa"></select>
+                    <button id="uuid__empresa__criarDep">buscar uuid Empresa</button>
                     <input type="text" id="admin_name__company_uuid">
                     <button id="admin__CriarDepartamento">criar</button>
                 </form>
@@ -89,9 +91,12 @@
                 <h2 class="admin__form__h2">Contratar</h2>
                 <form action="" id="admin__form">
                     <label for="">uuid do funcionário</label>
+                    <select name="" id="admin__uudi__Funcionario_contratar"></select>
+                    <button id="uuid__funcionario__contratamento">buscar uuid funcionario</button>
                     <input type="text" id="admin__uuidFuncionario">
                     <label for="">uuid do departamentos para onde vai o funcionário</label>
-                    <select name="" id=""></select>
+                    <select name="" id="admin__deparatemnto__uuid__funcionarios"></select>
+                    <button id="buscar_uuid_departamento_contratar">buscar uuid departamento</button>
                     <input type="text" id="admin__uuidDapartamento">
                     <button id="admin__contratar">contratar</button>
                 </form>
@@ -101,7 +106,8 @@
                 <h2 class="admin__form__h2">Demitir Funcionário</h2>
                 <form action="" id="admin__form">
                     <label for="">uuid do funcionários</label>
-                    <select name="" id=""></select>
+                    <select name="" id="funcioanrios__uuid__demitir"></select>
+                    <button id="buscar_uuid_Funcionário_demitir">buscar uuid Funcionário</button>
                     <input type="text" id="demitir" name="" id="">
                     <button id="admin__demitirFuncionario">demitir</button>
                 </form>
@@ -114,7 +120,8 @@
                     <label for="">Descrição</label>
                     <input type="text" id="admin__departamento">
                     <label for="">uuid Departamento</label>
-                    <select name="" id=""></select>
+                    <select name="" id="uuid_deparatemnto_editarDescricao"></select>
+                    <button id="admin__editarDep_descricao">buscar uuid departamento</button>
                     <input type="text" id="admin__uuid">
                     <button id="admin__ediarDep">editar</button>
                 </form>
@@ -125,7 +132,8 @@
                 <form action="" id="admin__form">
 
                     <label for="">uuid do departamento</label>
-                    <select name="" id=""></select>
+                    <select name="" id="admin__deletar__departamento"></select>
+                    <button id="btn__deletar__deparatemnto">buscar uuid departamento</button>
                     <input type="text" id="admin__deletarDepartamento">
                     <button id="admin__deletarDep">deletar</button>
 

@@ -57,7 +57,7 @@ class Funcionarios {
         const ulFuncionariosDoMesmoDepratamento = document.querySelector("#admin__listaFuncionarios")
         const FuncioanriosMesmoDepratemento = await Api.ListarosDepartamentosdaempresadofuncionáriologado()
         console.log(FuncioanriosMesmoDepratemento)
-        FuncioanriosMesmoDepratemento.forEach((elm) => {
+        FuncioanriosMesmoDepratemento.forEach(async (elm) => {
 
             console.log(elm)
 
