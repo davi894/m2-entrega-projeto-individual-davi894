@@ -111,7 +111,7 @@ class Api {
                 console.log(resp)
                 if (resp.error) {
                     alert(resp.error)
-                }else{
+                } else {
                     alert("usuário editado")
                 }
                 return resp
@@ -139,8 +139,11 @@ class Api {
             headers: this.headers
         })
             .then(resp => {
-                alert("Departamento deletado com sucesso")
-                console.log(resp)
+                if (resp.status === 404) {
+                    alert("Departamento já foi deletado")
+                } else {
+                    alert("Departamento deletado com sucesso")
+                }
             })
     }
 
@@ -229,10 +232,16 @@ class Api {
         })
             .then(resp => resp.json())
             .then(resp => {
-                alert("Empresa criada")
-                console.log(resp)
+               // console.log(resp.error.length)
+                if (resp.error.length == undefined) {
+                    alert("Empresa criada")
+                } else {
+                    alert("Preencha todos os cambos parar criar uma empresa")
+                }
+
+
             })
-            .catch(ero => console.log(ero))
+
     }
 
     /*EMPLYEES*/

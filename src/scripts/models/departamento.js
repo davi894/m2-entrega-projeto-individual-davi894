@@ -266,6 +266,7 @@ class Departamento {
             editardescricao.appendChild(optin)
             contratar.appendChild(optin)
             editardescricao.appendChild(optin)
+            deparatemntoUuid.appendChild(optin)
         })
 
         todosOsDepartamentos.forEach((elm) => {
