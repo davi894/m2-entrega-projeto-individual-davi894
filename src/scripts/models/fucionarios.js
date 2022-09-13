@@ -1,5 +1,6 @@
 import { Api } from "./../API/api.js"
-
+const todosOsDapratamentosDaEmpresa = await Api.ListarosDepartamentosdaempresadofuncionáriologado()
+console.log(todosOsDapratamentosDaEmpresa)
 class Funcionarios {
 
     static functionEditandoFuncionario() {
@@ -97,7 +98,25 @@ class Funcionarios {
             ulFuncionariosDoMesmoDepratamento.appendChild(li)
         })
     }
+
+    static async listandoTodosOsDeparatemntosDaeEmpresa() {
+
+        const ulDep = document.querySelector("#admin__todosOsDepartamentosEmpresa")
+        todosOsDapratamentosDaEmpresa.forEach((elm) => {
+            const li = document.createElement("li")
+
+            const name = document.createElement("h2")
+            name.innerText = elm.departments["name"]
+            const description = document.createElement("h2")
+            description.innerText = elm.departments["description"]
+
+            li.append(name, description)
+            ulDep.append(li)
+        })
+    }
 }
+
+Funcionarios.listandoTodosOsDeparatemntosDaeEmpresa()
 Funcionarios.functionEditandoFuncionario()
 Funcionarios.listarDepartamentosdaEmpresaDoFuncionario()
 Funcionarios.listarColegasDoMesmoDepartamento()

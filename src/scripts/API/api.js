@@ -66,14 +66,7 @@ class Api {
                     localStorage.setItem("TOKEN:Token", resp.token)
                     localStorage.setItem("ID:Id", resp.uuid)
                     window.location.replace("/src/pages/admin/pages/funcionarios.html")
-                } else {
-                    alert("o usuário Logou")
-                    localStorage.setItem("TOKEN:Token", resp.token)
-                    localStorage.setItem("ID:Id", resp.uuid)
-                    window.location.replace("/src/pages/usuario.html")
                 }
-            }).catch(err => {
-                alert("dados ou usuário inválido")
             })
     }
 
@@ -232,16 +225,12 @@ class Api {
         })
             .then(resp => resp.json())
             .then(resp => {
-               // console.log(resp.error.length)
-                if (resp.error.length == undefined) {
+                if (resp.error?.length == undefined) {
                     alert("Empresa criada")
                 } else {
                     alert("Preencha todos os cambos parar criar uma empresa")
                 }
-
-
             })
-
     }
 
     /*EMPLYEES*/
@@ -263,7 +252,7 @@ class Api {
             headers: this.headers
         })
             .then(resp => resp.json())
-            .then(resp => console.log(resp))
+            .then(resp => resp)
     }
 
     static async listartodosOsFuncionariosDoDepartamentoDoFuncionario() {

@@ -3,7 +3,6 @@
   --black--cor: #000000;
 }
 
-
 #funcionario__btn__EditarDados {
   background-color: var(--black--cor);
   color: var(--white--cor);
@@ -25,6 +24,15 @@
   cursor: pointer;
 }
 
+.mode,
+#funcionario__btn__EditarDados {
+  max-width: 5rem;
+  margin-top: 1rem;
+  max-height: 3rem;
+  align-items: center;
+  text-align: center;
+}
+
 @media (max-width: 537px) {
   #admin__NomeImgEmail {
     flex-direction: column;
@@ -34,7 +42,6 @@
   }
 
   #funcionario__btn__EditarDados {
-    max-width: 200px;
     padding: 0.5rem;
   }
 }
